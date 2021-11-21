@@ -32,6 +32,7 @@ searchUser.addEventListener('keyup', (e) => {
                     //Show profile
 
                     ui.showProfile(data.profile)
+                    ui.showRepos(data.repos)
 
                 }
             })
