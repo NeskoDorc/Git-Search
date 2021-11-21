@@ -1,3 +1,6 @@
+// INIT github
+const github = new GitHub
+
 //Search Input
 
 const searchUser = document.getElementById('searchUser')
@@ -9,7 +12,15 @@ searchUser.addEventListener('keyup', (e) => {
     const userText = e.target.value
 
     if (userText !== '') {
-        console.log(userText)
+        //Make HTTP call
+
+
+        github.getUser(userText)
+            .then(data => {
+
+                console.log(data)
+            })
+
     }
 
 })
