@@ -1,4 +1,6 @@
 class Ui {
+
+    // Ui constructor 
     constructor() {
 
         this.profile = document.getElementById('profile')
@@ -6,6 +8,7 @@ class Ui {
 
     }
 
+    // Display  profile 
     showProfile(user) {
 
         this.profile.innerHTML = `
@@ -49,6 +52,50 @@ class Ui {
     <div id="repos"></div>
         
         `
+
+
+    }
+
+    // Clear profile after backspace all 
+    clearProfile() {
+        this.profile.innerHTML = ''
+
+    }
+
+    // Show alert if user is not found 
+    showAlert(message, className) {
+
+        this.clearAlert()
+
+        //Create div
+        const div = document.createElement('div')
+            // Add Classes 
+        div.className = className
+
+        // Add text message 
+        div.appendChild(document.createTextNode(message))
+            // Get parent 
+        const container = document.querySelector('.searchContainer')
+        const search = document.querySelector('.search')
+        container.insertBefore(div, search)
+
+
+        // Timeout after 3 sec
+        setTimeout(() => {
+            this.clearAlert()
+        }, 3000)
+
+
+
+    }
+
+    clearAlert() {
+        const currentAlert = document.querySelector('.alert')
+        if (currentAlert) {
+            currentAlert.remove()
+
+        }
+
 
 
     }
